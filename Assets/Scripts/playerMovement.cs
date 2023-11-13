@@ -28,7 +28,13 @@ public class playerMovement : MonoBehaviour
     void Update()
     {
         xMove = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
-        zMove = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
+        zMove = Input.GetAxis("Vertical") * currentSpeed * Time.deltaTime;
+
+        move = transform.right * xMove +
+            transform.up * gravity +
+            transform.forward * zMove;
+
+        characterController.Move(move);
 
     }
 }
