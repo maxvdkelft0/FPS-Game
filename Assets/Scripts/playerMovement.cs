@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine; 
 
 public class playerMovement : MonoBehaviour
 {
@@ -35,6 +35,10 @@ public class playerMovement : MonoBehaviour
             transform.forward * zMove;
 
         characterController.Move(move);
+        if (Input.GetKey(KeyCode.Space) && characterController.isGrounded)
+        {
+            // jump
+        }
 
     }
 }
