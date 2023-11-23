@@ -16,6 +16,8 @@ public class enemy : MonoBehaviour
     private float yPosition;
     private float zPosition;
 
+    public float closeEnough = 3f;
+
     void Start()
     {
         NewLocation();
@@ -23,10 +25,13 @@ public class enemy : MonoBehaviour
 
     void Update()
     {
-        
+        if (Vector3.Distance(transform.position, new Vector3(xPosition, yPosition, zPosition)) <= closeEnough)
+        {
+            NewLocation();
+        }
     }
 
-    public void NewLocation()
+    public void NewLocation() // get a random location and set it to the enemy
     {
         xPosition = Random.Range(xMin, xMax);
         yPosition = transform.position.y;
