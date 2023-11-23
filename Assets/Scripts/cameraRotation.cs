@@ -14,13 +14,11 @@ public class cameraRotation : MonoBehaviour
     private float yMouse;
     private float xRotation = 0f;
 
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; // hide cursor
     }
 
-    // Update is called once per frame
     void Update()
     {
         xMouse = Input.GetAxis("Mouse X") * speed * Time.deltaTime;
