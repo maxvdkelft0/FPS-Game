@@ -828,6 +828,7 @@ GameObject:
   - component: {fileID: 1335731313}
   - component: {fileID: 1335731318}
   - component: {fileID: 1335731317}
+  - component: {fileID: 1335731319}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: NPC
@@ -963,6 +964,23 @@ MonoBehaviour:
   zMin: -20
   zMax: 20
   closeEnough: 3
+--- !u!114 &1335731319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335731312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3ed7a8b19a0e4ff6a0a47271bf89791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2112555661}
+  attackRange: 6
+  defaultmaterial: {fileID: 2100000, guid: c31327991712d471293be0ecf4c0731d, type: 2}
+  alertmaterial: {fileID: 2100000, guid: 20117f1d14d824f6cb05ac64faf00dca, type: 2}
+  ren: {fileID: 1335731314}
 --- !u!1 &1542738140
 GameObject:
   m_ObjectHideFlags: 0
