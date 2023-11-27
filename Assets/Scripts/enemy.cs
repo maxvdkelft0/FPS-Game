@@ -11,7 +11,7 @@ public class enemy : MonoBehaviour
     public float xMax;
     public float zMin;
     public float zMax;
-
+    public float squareOfMovement = 20f;
     private float xPosition;
     private float yPosition;
     private float zPosition;
@@ -20,6 +20,8 @@ public class enemy : MonoBehaviour
 
     void Start()
     {
+        xMin = zMin = -squareOfMovement;
+        xMax = zMax = squareOfMovement;
         NewLocation();
     }
 
