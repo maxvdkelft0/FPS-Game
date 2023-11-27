@@ -7,10 +7,10 @@ public class enemy : MonoBehaviour
 {
     public NavMeshAgent badGuy;
 
-    public float xMin;
-    public float xMax;
-    public float zMin;
-    public float zMax;
+    private float xMin;
+    private float xMax;
+    private float zMin;
+    private float zMax;
     public float squareOfMovement = 20f;
     private float xPosition;
     private float yPosition;

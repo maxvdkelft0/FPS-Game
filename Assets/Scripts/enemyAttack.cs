@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class enemyAttack : MonoBehaviour
 {
-    public Transform player;
+    private Transform player;
     public float attackRange = 10f;
 
     private enemy enemyScript;
@@ -13,10 +13,13 @@ public class enemyAttack : MonoBehaviour
     public Material defaultmaterial;
     public Material alertmaterial;
     public Renderer ren;
+    public bool foundPlayer;
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyScript = GetComponent<enemy>();
+        ren = GetComponent<Renderer>();
     }
 
     void Start()
@@ -28,13 +31,15 @@ public class enemyAttack : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, player.position) <= attackRange)
         {
-            ren.sharedMaterial = alertmaterial;
-            enemyScript.badGuy.SetDestination(player.position);
+            ren.sharedMaterial = alertmaterial; // change material
+            enemyScript.badGuy.SetDestination(player.position); // set destination to player position
+            foundPlayer = true; // enable bool for chasing
         }
-        else
+        else if (foundPlayer)
         {
-            ren.sharedMaterial = defaultmaterial;
-            enemyScript.NewLocation();
+            ren.sharedMaterial = defaultmaterial; // change material
+            enemyScript.NewLocation(); // get new location
+            foundPlayer = false; // disbale bool for chasing
         }
     }
 }
