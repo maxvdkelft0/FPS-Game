@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI; // Add this line to include the UnityEngine.UI namespace
+using UnityEngine.UI;
 
 public class ammoManager : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class ammoManager : MonoBehaviour
     private int currentAmmo;
 
     public TextMeshProUGUI ammoText; // Reference to the Text component
-
+    public TextMeshProUGUI reloadingText; // Reference to the reloading Text component
 
     private void Start()
     {
@@ -36,12 +36,20 @@ public class ammoManager : MonoBehaviour
         UpdateAmmoUI();
     }
 
+    public void SetReloadingText(string text)
+    {
+        if (reloadingText != null)
+        {
+            reloadingText.text = text;
+        }
+    }
+
     void UpdateAmmoUI()
     {
         // Update the UI Text with the current ammo count
         if (ammoText != null)
         {
-            ammoText.text = "Ammo: " + currentAmmo.ToString();
+            ammoText.text = currentAmmo.ToString() + "/10";
         }
     }
 }
