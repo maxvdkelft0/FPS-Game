@@ -9,7 +9,7 @@ public class enemySpawner : MonoBehaviour
 
     void Start()
     {
-        for(int i = 0; i < enemysToSpawn - 1; i++)
+        for(int i = 0; i < enemysToSpawn; i++)
         {
             GameObject enemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
         }
