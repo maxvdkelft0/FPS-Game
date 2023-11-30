@@ -70,7 +70,7 @@ public class shooting : MonoBehaviour
         // Update the TextMeshPro text field with the current kill count
         if (killCounterText != null)
         {
-            killCounterText.text = "Kills: " + killCounter.ToString();
+            killCounterText.text = killCounter.ToString();
         }
     }
 
