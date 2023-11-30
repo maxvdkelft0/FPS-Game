@@ -26,7 +26,7 @@ public class ammoManager : MonoBehaviour
         if (currentAmmo > 0)
         {
             currentAmmo--;
-            UpdateAmmoUI();
+            UpdateAmmoUI(); // updates the ui field
         }
     }
 
