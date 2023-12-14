@@ -33,8 +33,8 @@ public class shooting : MonoBehaviour
                     {
                         Destroy(hit.collider.gameObject);
                         ammoManager.DecreaseAmmo(); // Decrease ammo when shooting
+                        if (hit.collider.tag.Equals("NPC"))
                         IncrementKillCounter(); // Increase kill counter when hitting NPC
-                        Debug.Log("Hits NPC");
                     }
                 }
             }
@@ -63,6 +63,7 @@ public class shooting : MonoBehaviour
     {
         killCounter++;
         UpdateKillCounterText();
+        Debug.Log("Kill counter set to " + killCounter);
     }
 
     void UpdateKillCounterText()
