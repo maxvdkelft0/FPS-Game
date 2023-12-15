@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class enemyAttack : MonoBehaviour
 {
@@ -9,17 +6,25 @@ public class enemyAttack : MonoBehaviour
     public float attackRange = 10f;
 
     private enemy enemyScript;
+    private PlayerHealth playerHealth; // Reference to the PlayerHealth script
 
     public Material defaultmaterial;
     public Material alertmaterial;
     public Renderer ren;
-    public bool foundPlayer;
+    public bool foundPlayer = false;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemyScript = GetComponent<enemy>();
         ren = GetComponent<Renderer>();
+
+        // Get the PlayerHealth script component
+        playerHealth = player.GetComponent<PlayerHealth>();
+        if (playerHealth == null)
+        {
+            Debug.LogError("PlayerHealth script not found on the player GameObject.");
+        }
     }
 
     void Start()
@@ -34,12 +39,15 @@ public class enemyAttack : MonoBehaviour
             ren.sharedMaterial = alertmaterial; // change material
             enemyScript.badGuy.SetDestination(player.position); // set destination to player position
             foundPlayer = true; // enable bool for chasing
+
+            // Call TakeDamage from PlayerHealth when the enemy is in attack range
+            playerHealth.TakeDamage();
         }
         else if (foundPlayer)
         {
             ren.sharedMaterial = defaultmaterial; // change material
             enemyScript.NewLocation(); // get new location
-            foundPlayer = false; // disbale bool for chasing
+            foundPlayer = false; // disable bool for chasing
         }
     }
 }

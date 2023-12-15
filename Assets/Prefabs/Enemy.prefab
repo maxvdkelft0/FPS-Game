@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   badGuy: {fileID: 5006041354178210916}
   squareOfMovement: 20
-  closeEnough: 8
+  closeEnough: 4
 --- !u!195 &5006041354178210916
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ed7a8b19a0e4ff6a0a47271bf89791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 8
+  attackRange: 4
   defaultmaterial: {fileID: 2100000, guid: 20117f1d14d824f6cb05ac64faf00dca, type: 2}
   alertmaterial: {fileID: 2100000, guid: c31327991712d471293be0ecf4c0731d, type: 2}
   ren: {fileID: 6721839859507886944}
